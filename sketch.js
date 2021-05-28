@@ -74,32 +74,14 @@ function readStock(data){
 function feedDog(){
   dog.addImage(happyDog);
 
-  if(foodS>0){
-    milk = createSprite(550,300,70,70);
-    milk.addImage(MILKimg);
-    milk.scale = 0.09;
-  }
+ foodObj.deductFood();
   
-    foodObj.updateFoodStock(foodObj.getFoodStock()-1);
     database.ref('/').update({
       Food:foodObj.getFoodStock(),
       FeedTime:hour()
     });
 
-  //write code here to update food stock and last fed time
-//   var food_stock_val=foodObj.getFoodStock();
-// if(food_stock_val<=0){
-// foodObj.updateFoodStock(food_stock_val*0)
-// } else{
-//   foodObj.updateFoodStock(food_stock_val-1)
-// }
 
-// database.ref("/").update({
-//   Food:foodObj.getFoodStock(),
-//   FeedTime:hour()
-  
-
-//})
 }
 
 //function to add food in stock
